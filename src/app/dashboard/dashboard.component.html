@@ -1,0 +1,65 @@
+<div class="vbox" style="height: 100%; width: 100%;">
+
+
+
+  <md-card >
+    above the dashboard --- <i class="fa fa-user-o"></i> {{currentUser}}
+  </md-card>
+
+  <md-card >
+    in the dashboard
+    <div class="hbox">
+      <button class="btn btn-primary" (click)="navigateToSites()">Sites</button>
+      <button class="btn btn-primary" (click)="navigateToDevices()">Devices</button>
+
+    </div>
+
+    <div>
+      <span>Reverse ngif custom - structural directive --> </span>
+      <button class="btn btn-danger" (click)="toggleVisibility()">Toggle visibility</button>
+      <div *reverseNgIf="flag"> some random text</div>
+    </div>
+
+    <div>
+      <span customHighlight>Highlight custom - attribute directive 1 </span>
+
+      <!-- no diff in 2 & 3 - this was before i added an alias to the input variable-->
+      <!--
+      <span customHighlight [highlightColour]="'red'">Highlight custom - attribute directive 2</span><p></p>
+      <span customHighlight highlightColour="red">Highlight custom - attribute directive 3</span><p></p>
+      -->
+
+      <span customHighlight ="null">Highlight custom - attribute directive 4</span>
+      <span [customHighlight] ="'green'">Highlight custom - attribute directive 5</span>
+
+    </div>
+
+
+    <ngx-charts-advanced-pie-chart
+            [view]="view"
+            [scheme]="colorScheme"
+            [results]="single"
+            [gradient]="gradient"
+            (select)="onSelect($event)">
+    </ngx-charts-advanced-pie-chart>
+
+  </md-card>
+
+
+  <!--
+    <md-sidenav-layout>
+      <md-sidenav #start (open)="closeStartButton.focus()" style="background-color: brown">
+        Start Sidenav.
+        <br>
+        <button md-button #closeStartButton (click)="start.close()">Close</button>
+
+      </md-sidenav>
+
+
+      <button md-button (click)="start.open()">Open start sidenav</button>
+
+    </md-sidenav-layout>
+  -->
+  <!--<md-progress-circle mode="indeterminate"></md-progress-circle>-->
+
+</div>

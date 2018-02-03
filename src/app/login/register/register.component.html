@@ -1,0 +1,19 @@
+<div class="vbox" style="height: 50%; width: 50%;">
+  <div class="flex vbox">
+    <form novalidate [formGroup]="registerUserForm" (ngSubmit)="registerUser()">
+      <md-input placeholder="User Name" style="width: 100%" formControlName="userName"></md-input>
+      <md-input placeholder="Email ID" style="width: 100%" formControlName="email"></md-input>
+      <div formGroupName="passwordFields">
+        <md-input placeholder="Password" type="password" style="width: 100%" formControlName="password"></md-input>
+        <md-input placeholder="Confirm Password" type="password" style="width: 100%" formControlName="confirmPassword"></md-input>
+      </div>
+
+      <button type="submit" class="btn btn-success" [disabled]="!registerUserForm.valid">Submit</button>
+      <!--<button type="reset" (click)="close()">Close</button>-->
+      <!-- TODO how to close this popup after submit -->
+    </form>
+
+
+  </div>
+</div>
+

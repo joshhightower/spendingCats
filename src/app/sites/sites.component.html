@@ -1,0 +1,78 @@
+<div>
+  {{pageHeader}}
+  <i class="fa fa-bolt" aria-hidden="true"></i>
+<div>
+  <simple-button [inputLabel]="compoHeader" (buttonClickEvent)="buttonClickHandler($event)"></simple-button>
+
+  <list-component [dataProvider]="listData"></list-component>
+</div>
+
+  <div class="hbox" style="width: 100%">
+    <div class="vbox" style="width: 50%">
+      <h2>Forrm .. type 1</h2>
+      <form (ngSubmit)="onSubmit_1(form1)" #form1="ngForm">
+        <!-- i can use a 'ngModelGroup' directive here ... any items in this.. will be clumped together in onSubmit_1(input.value)-->
+        <div class="form-group">
+          <label for="sitename">SiteName</label> <!-- 'name' attribute is necessary in this approach -->
+          <input type="text" id="sitename" class="form-control" [(ngModel)]="form1Input.sitename" name="sitename" required #siteNameField="ngModel" inputValidator>
+          <pre *ngIf="siteNameField.errors">{{ siteNameField.errors | json }}</pre>
+        </div>
+        <div class="form-group">
+          <label for="sitetype">SiteType</label>
+          <input type="text" id="sitetype" class="form-control" [(ngModel)]="form1Input.sitetype" name="sitetype" required pattern="^[0-9]*$" #sitetypeField="ngModel">
+        </div>
+        <!-- this is another way of showing up an error msg in form.Needs a direct reference to a form control(#sitetypeField). Commenting it out because i dont like it -->
+        <!--<div *ngIf="!sitetypeField.valid">
+          <span>this should have numbers only</span>
+        </div> -->
+        <button type="submit" class="btn btn-success" [disabled]="!form1.valid">Submit</button>
+      </form>
+    </div>
+    <div style="width: 1px;height: 100%;border-color: darkgrey;border-style: double"></div>
+
+    <div class="vbox" style="width: 50%">
+      <h2>Forrm .. type 2</h2>
+      <!-- this approach requires 'formGroup' and 'formControlName' directives ..and corresponding items in ts code -->
+      <form [formGroup]="form2" (ngSubmit)="onSubmit_2()">
+        <div class="form-group">
+          <label for="sitename2">SiteName</label>
+          <input type="text" id="sitename2" class="form-control"
+                 formControlName="siteName2">
+        </div>
+        <div class="form-group">
+          <label for="sitetype2">SiteType</label>
+          <input type="text" id="sitetype2" class="form-control"
+                 formControlName="siteType2">
+          <!-- showing error msg if validation failing -->
+          <div *ngIf="!form2.controls['siteType2'].valid">
+              <span>only numbers here</span>
+          </div>
+        </div>
+
+        <div formGroupName="infoFields">
+          <label for="siteLocation2">location</label>
+          <input type="text" id="siteLocation2" class="form-control"
+                 formControlName="siteLocation2">
+          <label for="sitePriority2">Priority</label>
+          <input type="number" id="sitePriority2" class="form-control"
+                 formControlName="sitePriority2">
+        </div>
+
+        <div class="form-group" formArrayName="list2">
+          <label for="list2">List</label>
+          <div *ngFor="let item of form2.controls['list2'].controls;let i =index">
+            <input type="text" id="list2" class="form-control" formControlName={{i}} >
+          </div>
+        </div>
+
+
+        <button type="submit" class="btn btn-success" [disabled]="!form2.valid">Submit</button>
+        <button (click)="addFormItems()">+</button>
+      </form>
+
+    </div>
+
+
+  </div>
+
+</div>

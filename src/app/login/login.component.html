@@ -1,0 +1,34 @@
+<div class="vbox" style="height: 100%; width: 100%;">
+  <div class="flex vbox main-center cross-center wrap">
+    <md-input placeholder="Login ID" style="width: 25%" [(ngModel)]="userName"></md-input>
+    <md-input placeholder="Password" type="password" style="width: 25%" [(ngModel)]="password"></md-input>
+
+    <button (click)="login()">Login</button>
+
+
+    <div>
+      <a href="javascript:void(0)" (click)="registerUserModal.show()">Register</a> new user.
+
+      <!--<button type="button" class="btn btn-primary" (click)="staticModal.show()">Static modal</button>-->
+
+      <div class="modal fade" bsModal #registerUserModal="bs-modal" [config]="{backdrop: 'static'}"
+           tabindex="-1" role="dialog"  aria-hidden="true">
+        <div class="modal-dialog modal-sm">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" aria-label="Close" (click)="registerUserModal.hide()">
+                <span aria-hidden="true">&times;</span>
+              </button>
+              <h4 class="modal-title">Register User</h4>
+            </div>
+            <div class="modal-body">
+            <register-user></register-user>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
