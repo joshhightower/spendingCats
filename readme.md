@@ -1,40 +1,31 @@
-Original File Readme below:
+# SpendingCats
 
-This has grown bigger to be a simple seed/starter project.
-This is an angular 2 template project using which new projects can be developed.
+This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.28.3.
 
-This project at aimed at angular 2 beginners.. and DOES NOT contains anything to do with unit testing(karma/jasmine/whatsitsname)
+## Development server
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-git : https://gitlab.com/FullMetal/angular2-template-project.git
+## Code scaffolding
 
-How to use
-1) git clone https://gitlab.com/FullMetal/angular2-template-project.git
-2) cd angular2-webpack-starter
-3) npm i
-4) npm run start
-5) to deploy -> npm run build:prod. Deploy the 'dist' folder in apache or nginix. Make corresponding changes to apache conf.
-6) If you have never used apache, this will be simpler... https://www.npmjs.com/package/http-server
+Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive/pipe/service/class/module`.
 
-You might also need...
-Sample backend - a simple backend app. Adding the api used in frontend.Use this in tandem.
-https://gitlab.com/FullMetal/express-template-project
+## Build
 
-A much more simple backend project can be found here. Might not be fully compatible.
-https://gitlab.com/FullMetal/sample-backend-app
+Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
 
+## Running unit tests
 
-Features:
-- uses Webpack 1
-- lazy loading of feature modules
-- offline mode. Toggle from config/appConfig.<env>.json. Set to true by default. Add functions to DummyData. See examples in LoginService, DeviceService.
-- using config/env.json .. we should be able to switch config files depending on the environment
-- added a grid example on devices page (https://github.com/swimlane/ngx-datatable)
-- added a chart example on dashboard (https://github.com/swimlane/ngx-charts)
-- maintains user session using local storage
+Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-TODOs
-1) redirect to previous visited page if previous session is valid.
-2) add a register user feature.
-3) add tutorial.
-4) find a better way to package the css files.
-5) upgrade to Webpack 2
+## Running end-to-end tests
+
+Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+Before running the tests make sure you are serving the app via `ng serve`.
+
+## Deploying to GitHub Pages
+
+Run `ng github-pages:deploy` to deploy to GitHub Pages.
+
+## Further help
+
+To get more help on the `angular-cli` use `ng help` or go check out the [Angular-CLI README](https://github.com/angular/angular-cli/blob/master/README.md).

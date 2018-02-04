@@ -1,8 +1,0 @@
-
-{
-  "urls": {
-    "server": "http://localhost:8081/",
-    "apiPrefix":"api"
-  },
-  "offlineMode":true
-}
