@@ -21,7 +21,10 @@
         "styles.css",
           "../node_modules/bootstrap/dist/css/bootstrap.min.css"
       ],
-      "scripts": [],
+      "scripts": [
+        "../node_modules/jquery/dist/jquery.min.js",
+        "../node_modules/bootstrap/dist/js/bootstrap.min.js"
+      ],
       "environments": {
         "source": "environments/environment.ts",
         "dev": "environments/environment.ts",
@@ -50,6 +53,10 @@
     }
   },
   "defaults": {
+    "serve": {
+      "port": 4200,
+      "host": "0.0.0.0"
+    },
     "styleExt": "css",
     "prefixInterfaces": false,
     "inline": {
